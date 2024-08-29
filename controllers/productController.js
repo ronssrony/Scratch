@@ -41,3 +41,23 @@ module.exports.AllProducts = async function (){
  
 }
 
+module.exports.editpage = async function(req, res){
+            const productId = req.params.id 
+
+            let product = await productModel.findOne({_id:productId}) ; 
+            
+            if(!product) res.status(500).send("Product not found")
+
+            res.status(200).render('editproduct' , {product}) ;   
+
+}
+
+module.exports.update = async function (req, res){
+      const{image , name , price ,discount , bgcolor ,panelcolor ,textcolor} = req.body
+      await productModel.findOneAndUpdate({_id:req.params.id} ,{image , name ,price ,discount , bgcolor ,panelcolor ,textcolor} , {new:true})
+     .then(()=>{
+      res.status(200).redirect(`/product/${req.params.id}`)
+     }); 
+    
+}
+

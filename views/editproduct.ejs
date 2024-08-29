@@ -31,7 +31,7 @@
             <div class="portion flex flex-col items-start gap-10 ">
                 <div class="">
                     <a class=" text-lg block text-stone-600" href="/owner/dashboard">All Products</a>
-                    <a class=" text-lg block text-stone-600" href="">Color Palate</a>
+                    <a class=" text-lg block text-stone-600" href="https://colorhunt.co/">Color Palate</a>
                 
                 </div>
             </div>  
@@ -41,22 +41,23 @@
       </div>
 
       <div class="w-full ">
-        <h1 class="text-3xl mt-9 block tracking-tighter">Create New Product</h1>
+        <h1 class="text-3xl mt-9 block tracking-tighter">Update Product</h1>
         <div class="line  w-5/6 h-0.5 bg-stone-300 mt-2"></div>
         <h1 class="text-2xl mt-3 block tracking-tighter mb-5 ml-5">Product Details</h1>
       
-        <form action="/product/create" method="post" enctype="multipart/form-data" class="ml-5">   
-            <p class="inline-block text-xl mr-4 mb-5">Product Image</p>
-            <label for="image" class="bg-green-400 py-2 px-3 w-1/6 hover:text-stone-200 text-white text-lg mb-5 rounded-2xl ">Select File</label>
-            <input name="image" id="image"  type="file" autocomplete="off" placeholder="Full Name" class="hidden" >
-            <input name="name" type="text" autocomplete="off" placeholder="Product Name" class="bg-stone-200 block  p-2 w-96 text-xl mb-4 outline-none rounded-md border-none" >
-            <input name="price" type="text" autocomplete="off" placeholder="Product Price" class="bg-stone-200 mr-10  p-2 w-40 text-xl mb-4 outline-none rounded-md border-none" >
-            <input name="discount" type="text" autocomplete="off" placeholder="Discount Price" class="bg-stone-200  p-2 w-40 text-xl mb-4 outline-none rounded-md border-none" >
+        <form action="/product/update/<%=product._id%>" method="post" enctype="multipart/form-data" class="ml-5">   
+            <p class="inline-block text-xl mr-4 ">Product Image</p>
+            <label for="image" class="bg-black py-2 px-3 w-1/6 hover:text-stone-200 text-white text-lg mb-5 rounded-2xl "><%=product.image%></label>
+             <div class=" w-20 h-20  mb-2"> <img class="h-full w-full object-fit" src="/images/uploads/<%=product.image%>" alt=""> </div>
+            <input name="image" id="image"  type="file" autocomplete="off" class="hidden" >
+            <input name="name" value="<%=product.name%>" type="text" autocomplete="off" placeholder="Product Name" class="bg-stone-200 block  p-2 w-96 text-xl mb-4 outline-none rounded-md border-none" >
+            <input name="price" value="<%=product.price%>" type="text" autocomplete="off" placeholder="Product Price" class="bg-stone-200 mr-10  p-2 w-40 text-xl mb-4 outline-none rounded-md border-none" >
+            <input name="discount" value="<%=product.discount%>" type="text" autocomplete="off" placeholder="Discount Price" class="bg-stone-200  p-2 w-40 text-xl mb-4 outline-none rounded-md border-none" >
             <h1 class="text-2xl mt-3 block tracking-tighter mb-5">Panel Details</h1>
-            <input name="bgcolor" type="text" autocomplete="off" placeholder="Backround Color" class="bg-stone-200 mr-3  p-2 w-40 text-xl mb-4 outline-none rounded-md border-none" >
-            <input name="panelcolor" type="text" autocomplete="off" placeholder="Panel Color" class="bg-stone-200  p-2 w-40 text-xl mb-4 outline-none rounded-md border-none" >
-            <input name="textcolor" type="text" autocomplete="off" placeholder="Text Color" class="bg-stone-200 block  p-2 w-40 text-xl mb-4 outline-none rounded-md border-none" >
-            <button  class="bg-green-400 py-2 px-20 hover:text-stone-200 text-white text-xl mb-5 rounded-2xl tracking-wider font-bold">Create</button>
+            <input name="bgcolor" value="<%=product.bgcolor%>" type="text" autocomplete="off" placeholder="Backround Color" class="bg-stone-200 mr-3  p-2 w-40 text-xl mb-4 outline-none rounded-md border-none" >
+            <input name="panelcolor" value="<%=product.panelcolor%>" type="text" autocomplete="off" placeholder="Panel Color" class="bg-stone-200  p-2 w-40 text-xl mb-4 outline-none rounded-md border-none" >
+            <input name="textcolor" value="<%=product.textcolor%>" type="text" autocomplete="off" placeholder="Text Color" class="bg-stone-200 block  p-2 w-40 text-xl mb-4 outline-none rounded-md border-none" >
+            <button  class="bg-black py-2 px-20 hover:text-stone-200 text-white text-xl mb-5 rounded-2xl tracking-wider font-bold">Update</button>
         </form>
 
       </div>

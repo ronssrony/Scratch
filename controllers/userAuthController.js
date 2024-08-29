@@ -5,6 +5,7 @@ const userModel = require('../models/user-model')
 const config = require('config')
 const products = require('../controllers/productController')
 const {unique} = require('../utils/map')
+
 module.exports.SignUp= async function(req, res){
       const{fullname,email,password} = req.body ;
       let user= await userModel.findOne({email:email}) ;
@@ -16,13 +17,14 @@ module.exports.SignUp= async function(req, res){
                 fullname ,
                 email ,
                 password: hash
-              }); 
+              }).then(()=>{
+                let token = jwt.sign({email:email} , `${config.get("JWT_KEY")}`)
+                res.status(201).cookie("ronss",token).redirect('/user/shop')
+              })
        })
        
         }); 
-        let token = jwt.sign({email:email} , `${config.get("JWT_KEY")}`)
-        
-        res.status(201).cookie("ronss",token).redirect('/user/shop')
+       
     }; 
 }
 
@@ -93,3 +95,4 @@ module.exports.Cart = async function( req , res){
 
     
 }
+
