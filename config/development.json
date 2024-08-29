@@ -2,5 +2,5 @@
     "MONGODB_URL": "mongodb+srv://ronssrony:ronssrony@scatch.ep7b3.mongodb.net/?retryWrites=true&w=majority&appName=scatch" ,
     "JWT_KEY": "FODSUFDOUVNASDKJFDSKWIOEE" , 
     "NODE_ENV": "development" , 
-    "STRIPE_PRIVATE_KEY": "sk_test_51NUyczFawRj8GWy4viBS9CupCoRJmnK86Wt2jYQawv7K5u0pqFKUS4DJK1tmfdBc7latJ9NV18wuFOBhXxHDe46Y00EtwRBjTu"
+   
 }
