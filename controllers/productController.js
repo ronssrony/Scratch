@@ -52,12 +52,21 @@ module.exports.editpage = async function(req, res){
 
 }
 
-module.exports.update = async function (req, res){
+module.exports.updateproduct = async function (req, res){
       const{image , name , price ,discount , bgcolor ,panelcolor ,textcolor} = req.body
       await productModel.findOneAndUpdate({_id:req.params.id} ,{image , name ,price ,discount , bgcolor ,panelcolor ,textcolor} , {new:true})
      .then(()=>{
       res.status(200).redirect(`/product/${req.params.id}`)
      }); 
-    
+}
+
+module.exports.deleteproduct = async function(req, res){
+    const productId = req.params.id ; 
+    await productModel.findOneAndDelete({_id:productId}).then(()=>{
+      res.status(200).redirect('/owner/dashboard') ;
+    })
+    .catch((e)=>{
+      res.json(e)
+    })
 }
 

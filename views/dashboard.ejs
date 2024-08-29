@@ -49,9 +49,11 @@
                   <h1 class="text-xl text-[<%= product.textcolor%>]"><%=product.name%></h1>
                   <h1 class="text-lg text-[<%= product.textcolor%>] ">&#2547 <%=product.price%></h1>
                 </a>
-                <a href="/product/edit/<%=product._id%>"  class="bg-white px-3 rounded-3xl">
-                  <button class=" text-lg" id="<%=product._id%>" >Edit</button>
-                </a>
+                <div  class=" px-3 rounded-3xl flex h-full justify-between  flex-col items-center">
+                  <a href="/product/edit/<%=product._id%>"  class=" text-lg text-[<%= product.textcolor%>] underline " id="<%=product._id%>" >Edit</a>
+                  <a href="/product/delete/<%=product._id%>"  class=" text-lg text-black underline " id="<%=product._id%>" >Delete</a>
+                </div>
+                
              </div>
             </div>
 
