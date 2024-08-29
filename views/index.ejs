@@ -1,14 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-</head>
-<body>
-    <h1>working</h1>
+<%- include('./partial/header') %>
 
-    <script src=""></script>
-</body>
-</html>
+<div class="main  ml-12 pl-12 flex items-center justify-start gap-40">
+    <div class="singup bg-stone-200  w-2/6 h-screen absolute top-0 z-0 p-10  flex flex-col items-start justify-center relative pt-20  ">
+        <h1 class="text-4xl">welcome to <span class="text-blue-500 font-bold text-5xl">Imagine</span></h1>
+        <h1 class="text-3xl   self-start ">create your account</h1>
+     <form action="/user/create" method="post" class="self-start mt-5 w-full">
+        <input name="fullname" type="text" autocomplete="off" placeholder="Full Name" class="bg-transparent block   p-2 w-full text-xl bg-white mb-4 outline-none rounded-md border-none" >
+        <input name="email" type="email" autocomplete="new-email"  placeholder="Email" class="bg-transparent block  p-2 w-full text-xl bg-white mb-4 outline-none rounded-md border-none" required>
+        <input name="password" type="password" autocomplete="new-password"  placeholder="Password" class="bg-transparent block p-2 w-full text-xl bg-white mb-4 outline-none rounded-md border-none" required>
+        <input type="submit" value="create my account" class="bg-blue-500 text-xl text-white rounded-3xl px-5 py-2 font-bold mt-5 ">
+     </form>
+      </div>
+
+      <div class="w-12 ">
+        <h1 class="text-3xl bg-blue-500 text-center rounded-3xl p-2 text-white tracking-wider">or</h1>
+      </div>
+
+      <div class="login 0  w-2/6 h-screen absolute top-0 z-0 p-10  flex flex-col items-start justify-center relative pt-20">
+        <h1 class="text-3xl   self-start ">Login your account</h1>
+     <form action="/user/login" method="post" class="self-start mt-5 w-full">
+        <input name="email" type="email" autocomplete="new-email"  placeholder="Email" class=" bg-stone-200 block  p-2 w-full text-xl mb-4 outline-none rounded-md border-none" required>
+        <input name="password" type="password" autocomplete="new-password"  placeholder="Password" class=" bg-stone-200 block p-2 w-full text-xl mb-4 outline-none rounded-md border-none" required>
+        <input type="submit" value="Login" class="bg-blue-500 text-xl text-white rounded-3xl px-5 py-2 font-bold mt-5 ">
+     </form>
+      </div>
+</div>
+
+<a href="/owner" class="absolute right-0 top-0">admin</a>
+
